@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LandingView: View {
     var body: some View {
+        NavigationStack {
             VStack{
                 VStack{
                     Text("TASTES ON DEMAND")
@@ -30,20 +31,22 @@ struct LandingView: View {
                 }
                 .padding()
                 Spacer()
-                NavigationLink(destination: ContentView()) {
+                NavigationLink(destination: MainView()) {
                     Text("Get Started")
                         .foregroundStyle(.white)
+                        .fontWeight(.bold)
                         .font(.headline)
                         .frame(height:55)
-                        .frame(maxWidth:120)
+                        .frame(maxWidth:.infinity)
                         .background(Color.cyan)
-                        .cornerRadius(10)
+                        .cornerRadius(30)
                         .padding()
                 }
             }
-            .background(Image("img1").resizable().scaledToFill()
+            .background(Image("land1").resizable().scaledToFill()
                 .edgesIgnoringSafeArea(.all))
         }
+    }
 }
 
 #Preview {

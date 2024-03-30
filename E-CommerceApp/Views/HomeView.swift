@@ -8,8 +8,17 @@
 import SwiftUI
 
 struct HomeView: View {
+    @State private var searchTerm = ""
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack{
+            ScrollView{
+                VStack{
+                    CardCollectionView()
+                }
+            }
+            .searchable(text: $searchTerm,placement: .navigationBarDrawer(displayMode: .always),
+                        prompt: "FIND YOUR ITEMS...")
+        }
     }
 }
 

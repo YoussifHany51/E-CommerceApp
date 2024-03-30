@@ -8,8 +8,40 @@
 import SwiftUI
 
 struct MainView: View {
+    init(){
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.systemCyan]
+    }
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack{
+            VStack{
+                HomeView()
+            }
+        }
+        .toolbar(content: {
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    
+                } label: {
+                    Image(systemName: "line.3.horizontal")
+                        .foregroundStyle(.black)
+                        .font(.body)
+                }
+            }
+            ToolbarItem(placement: .topBarTrailing) {
+                Button{
+                    
+                } label: {
+                    Image(systemName: "bell")
+                        .foregroundStyle(.black)
+                        .font(.body)
+                }
+            }
+        })
+        .navigationTitle("SPATU")
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
+        
+            
     }
 }
 

@@ -12,12 +12,12 @@ struct HomeView: View {
     var body: some View {
         NavigationStack{
             ScrollView{
-                VStack{
+                VStack(spacing:10){
                     CardCollectionView()
+                        .searchable(text: $searchTerm,placement: .navigationBarDrawer(displayMode: .always),prompt: "FIND YOUR ITEMS...")
+                    CategoryView()
                 }
             }
-            .searchable(text: $searchTerm,placement: .navigationBarDrawer(displayMode: .always),
-                        prompt: "FIND YOUR ITEMS...")
         }
     }
 }

@@ -8,8 +8,30 @@
 import SwiftUI
 
 struct CategoryView: View {
+    var image = "collection1"
+    var title = "men"
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack{
+            ScrollView(.horizontal){
+                HStack{
+                    ForEach(0..<4){ cat in
+                        VStack {
+                            VStack{
+                                Image(image)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 40)
+                            }
+                            .padding()
+                            .background(Color.gray.opacity(0.1))
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                            .padding(6)
+                            Text(title).textCase(.uppercase).fontWeight(.medium)
+                        }
+                    }
+                }.padding()
+            }
+        }
     }
 }
 

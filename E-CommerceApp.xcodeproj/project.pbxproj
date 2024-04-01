@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0981D2CB2BBA2EA8000224AF /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0981D2CA2BBA2EA8000224AF /* CategoryView.swift */; };
 		09A6E51C2BB7814000478226 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A6E51B2BB7814000478226 /* MainView.swift */; };
 		09A6E51E2BB7C0D600478226 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A6E51D2BB7C0D600478226 /* HomeView.swift */; };
 		09A6E5202BB7CE1500478226 /* CardCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A6E51F2BB7CE1500478226 /* CardCollectionView.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0981D2CA2BBA2EA8000224AF /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		09A6E51B2BB7814000478226 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		09A6E51D2BB7C0D600478226 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		09A6E51F2BB7CE1500478226 /* CardCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionView.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				09A6E51B2BB7814000478226 /* MainView.swift */,
 				09A6E51D2BB7C0D600478226 /* HomeView.swift */,
 				09A6E51F2BB7CE1500478226 /* CardCollectionView.swift */,
+				0981D2CA2BBA2EA8000224AF /* CategoryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -156,6 +159,7 @@
 			files = (
 				09E350DD2BB624C100FA69CD /* LandingView.swift in Sources */,
 				09A6E5202BB7CE1500478226 /* CardCollectionView.swift in Sources */,
+				0981D2CB2BBA2EA8000224AF /* CategoryView.swift in Sources */,
 				09A6E51E2BB7C0D600478226 /* HomeView.swift in Sources */,
 				09A6E51C2BB7814000478226 /* MainView.swift in Sources */,
 				09E350CF2BB6244700FA69CD /* E_CommerceAppApp.swift in Sources */,

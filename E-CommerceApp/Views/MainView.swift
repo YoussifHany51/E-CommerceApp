@@ -16,6 +16,9 @@ struct MainView: View {
             VStack{
                 HomeView()
             }
+            .navigationTitle("SPATU")
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden(true)
         }
         .toolbar(content: {
             ToolbarItem(placement: .topBarLeading) {
@@ -37,11 +40,6 @@ struct MainView: View {
                 }
             }
         })
-        .navigationTitle("SPATU")
-        .navigationBarTitleDisplayMode(.inline)
-        .navigationBarBackButtonHidden(true)
-        
-            
     }
 }
 

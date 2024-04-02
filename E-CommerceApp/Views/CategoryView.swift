@@ -10,31 +10,50 @@ import SwiftUI
 struct CategoryView: View {
     var image = "collection1"
     var title = "men"
+    @ObservedObject var viewModel = ECommerceViewModel()
     var body: some View {
         NavigationStack{
             ScrollView(.horizontal){
                 HStack{
-                    ForEach(0..<4){ cat in
+                    ForEach(viewModel.categries){ cat in
                         VStack {
                             VStack{
-                                Image(image)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 40)
+                                AsyncImage(url: URL(string: cat.image)){ image in
+                                    image
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 40)
+                                } placeholder: {
+                                    ProgressView()
+                                }
+                                    
                             }
                             .padding()
                             .background(Color.gray.opacity(0.1))
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                             .padding(6)
-                            Text(title).textCase(.uppercase).fontWeight(.medium)
+                            Text(cat.name).textCase(.uppercase).fontWeight(.light).font(.caption2)
                         }
                     }
                 }.padding()
+            }
+            .task {
+                do{
+                    viewModel.categries = try await viewModel.getCategoryData()
+                }catch APIError.invalidURL{
+                    print("Invalid URL")
+                }catch APIError.invalidData{
+                    print("Invalid Data")
+                }catch APIError.invalidResponse{
+                    print("Invalid Response")
+                }catch{
+                    print("Unexcpected Error")
+                }
             }
         }
     }
 }
 
 #Preview {
-    CategoryView()
+    CategoryView(viewModel: ECommerceViewModel())
 }

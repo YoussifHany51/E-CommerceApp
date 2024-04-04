@@ -12,10 +12,8 @@ class ECommerceViewModel:ObservableObject{
     @Published var categries: [Category] = []
     
     
-    func getCategoryData() async throws -> [Category]{
-        let endpoint = "https://api.escuelajs.co/api/v1/categories"
-        
-        guard let url = URL(string: endpoint) else {throw APIError.invalidURL}
+    func getData<T:Decodable>(for:T.Type,from url : String) async throws -> T{
+        guard let url = URL(string: url) else {throw APIError.invalidURL}
         
         let (data,response) = try await URLSession.shared.data(from: url)
         
@@ -26,9 +24,20 @@ class ECommerceViewModel:ObservableObject{
         do {
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
-            let returnedData = try decoder.decode([Category].self, from: data)
+            let returnedData = try decoder.decode(T.self, from: data)
             return returnedData
         } catch  {
+            throw APIError.invalidData
+        }
+
+    }
+    
+    func getCategoryData() async throws ->[Category] {
+        let endpoint = "https://api.escuelajs.co/api/v1/categories"
+        do {
+           let returedData = try await getData(for: [Category].self, from: endpoint)
+            return returedData
+        } catch {
             throw APIError.invalidData
         }
     }

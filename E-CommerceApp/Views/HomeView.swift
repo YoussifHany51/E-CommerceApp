@@ -16,6 +16,7 @@ struct HomeView: View {
                     CardCollectionView()
                         .searchable(text: $searchTerm,placement: .navigationBarDrawer(displayMode: .always),prompt: "FIND YOUR ITEMS...")
                     CategoryView()
+                    AllProductsView()
                 }
             }
         }

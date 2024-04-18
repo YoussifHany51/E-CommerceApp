@@ -12,6 +12,7 @@ struct DetailProductView: View {
     @State private var sizeIndex:Int = 3
     let sizeList = [40,41,42,43,44]
     let title:String
+    let price:Int
     let description:String
     let image:[String]
     var body: some View {
@@ -85,8 +86,41 @@ struct DetailProductView: View {
                             }
                         }
                         //MARK: Add to cart button
-                        HStack{
-                            Text("")
+                        ZStack {
+                            Capsule()
+                                .foregroundStyle(.black)
+                                .frame(maxWidth: .infinity)
+                                .frame(height: 45)
+                            HStack{
+                                VStack{
+                                    Text("Price")
+                                        .foregroundStyle(.white.opacity(0.8))
+                                        .fontWeight(.bold)
+                                        .font(.caption)
+                                    HStack(spacing:0){
+                                        Text("$")
+                                        Text("\(price)")
+                                    }
+                                    .foregroundStyle(.white)
+                                    .fontWeight(.black)
+                                    .font(.title3)
+                                }
+                                .padding()
+                                Spacer()
+                                    Button{
+                                        
+                                    }label: {
+                                        ZStack {
+                                            Capsule()
+                                                .foregroundStyle(.cyan)
+                                            .frame(width:145,height: 40)
+                                            Text("ADD TO CART")
+                                                .foregroundStyle(.white)
+                                                .font(.subheadline)
+                                                .fontWeight(.heavy)
+                                        }
+                                    }
+                            }
                         }
                         //
                     }
@@ -109,6 +143,7 @@ struct DetailProductView: View {
     }
 }
 
-//#Preview {
-//    DetailProductView()
-//}
+#Preview {
+    DetailProductView(title: "Nike Air Max", price: 0, description: "svdsnvnasdv",
+                      image: ["collection1"])
+}

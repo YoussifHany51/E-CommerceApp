@@ -20,7 +20,7 @@ struct AllProductsView: View {
                     //display products / 8
                         ForEach(viewMoreButton ? viewModel.products[0..<viewModel.products.count / 8]:viewModel.products[0..<viewModel.products.count]){ product in
                             VStack(alignment:.leading) {
-                                NavigationLink(destination:DetailProductView(title:product.title, description: product.description, image:product.images )) {
+                                NavigationLink(destination:DetailProductView(title:product.title,price: product.price, description: product.description, image:product.images )) {
                                     HStack{
                                         AsyncImage(url: URL(string: product.images[0])) { image in
                                             image
@@ -40,7 +40,6 @@ struct AllProductsView: View {
                                 HStack{
                                     VStack{
                                         Text(product.title).fontWeight(.heavy)
-                                        Text("\(product.price)").font(.caption2)
                                     }
                                     Spacer()
                                         Button{
